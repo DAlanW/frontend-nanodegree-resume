@@ -26,10 +26,8 @@ var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 
 var formattedbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMsg);
-var formattedSkills0 = HTMLskills.replace("%data%", bio.skills[0]);
-var formattedSkills1 = HTMLskills.replace("%data%", bio.skills[1]);
-var formattedSkills2 = HTMLskills.replace("%data%", bio.skills[2]);
-var formattedSkills3 = HTMLskills.replace("%data%", bio.skills[3]);
+
+
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
@@ -42,11 +40,19 @@ $("#topContacts").append(formattedLocation);
 
 $("#header").append(formattedbioPic);
 $("#header").append(formattedWelcomeMsg);
-$("#header").append(HTMLskillsStart);
-$("#header").append(formattedSkills0);
-$("#header").append(formattedSkills1);
-$("#header").append(formattedSkills2);
-$("#header").append(formattedSkills3);
+
+if (bio.skills.length > 0)	{
+	$("#header").append(HTMLskillsStart);
+
+	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+	$("#skills").append(formattedSkill);
+};
 
 $("#footerContacts").append(formattedMobile);
 $("#footerContacts").append(formattedEmail);
@@ -80,45 +86,20 @@ var work = {
 	]
 };
 
-var workStart = HTMLworkStart;
-
-var workEmployer0 = HTMLworkEmployer.replace("%data%", work.jobs[0].employer);
-var workTitle0 = HTMLworkTitle.replace("%data%", work.jobs[0].title);
-var workLocation0 = HTMLworkLocation.replace("%data%", work.jobs[0].location);
-var workDates0 = HTMLworkDates.replace("%data%", work.jobs[0].dates);
-var workDescription0 = HTMLworkDescription.replace("%data%", work.jobs[0].description);
-
-var workEmployer1 = HTMLworkEmployer.replace("%data%", work.jobs[1].employer);
-var workTitle1 = HTMLworkTitle.replace("%data%", work.jobs[1].title);
-var workLocation1 = HTMLworkLocation.replace("%data%", work.jobs[1].location);
-var workDates1 = HTMLworkDates.replace("%data%", work.jobs[1].dates);
-var workDescription1 = HTMLworkDescription.replace("%data%", work.jobs[1].description);
-
-var workEmployer2 = HTMLworkEmployer.replace("%data%", work.jobs[2].employer);
-var workTitle2 = HTMLworkTitle.replace("%data%", work.jobs[2].title);
-var workLocation2 = HTMLworkLocation.replace("%data%", work.jobs[2].location);
-var workDates2 = HTMLworkDates.replace("%data%", work.jobs[2].dates);
-var workDescription2 = HTMLworkDescription.replace("%data%", work.jobs[2].description);
-
-$("#workExperience").append(workStart);
-
-$("#workExperience").append(workEmployer0);
-$("#workExperience").append(workTitle0);
-$("#workExperience").append(workLocation0);
-$("#workExperience").append(workDates0);
-$("#workExperience").append(workDescription0);
-
-$("#workExperience").append(workEmployer1);
-$("#workExperience").append(workTitle1);
-$("#workExperience").append(workLocation1);
-$("#workExperience").append(workDates1);
-$("#workExperience").append(workDescription1);
-
-$("#workExperience").append(workEmployer2);
-$("#workExperience").append(workTitle2);
-$("#workExperience").append(workLocation2);
-$("#workExperience").append(workDates2);
-$("#workExperience").append(workDescription2);
+for (job in work.jobs) {
+	//create a new div for every work experience
+	$("#workExperience").append(HTMLworkStart);
+	// format using helper.js
+	var workEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var workTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var workLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+	var workDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	var workDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	// combine all vars into one var
+	var jobInfo = workEmployer + workTitle + workLocation + workDates + workDescription;
+	// append to each div
+	$(".work-entry:last").append(jobInfo);
+}
 
 var projects = {
 	"onlineCourses": {

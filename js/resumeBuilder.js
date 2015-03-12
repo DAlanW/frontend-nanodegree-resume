@@ -171,6 +171,12 @@ var education = {
         }
     ],
     "onlineCourses": [
+    	{
+    		"title": "HTML & CSS; JavaScript",
+    		"school": "Codecademy",
+    		"dates": 2014,
+    		"url": "http://www.codecademy.com"
+    	},
         {
             "title": "How to use Git and GitHub",
             "school": "Udactiy",

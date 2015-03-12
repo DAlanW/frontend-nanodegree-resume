@@ -46,6 +46,7 @@ h2, h3, h4, h5 {
   padding:10px;
   padding-left: 5%;
   padding-right: 5%;
+  text-decoration: underline;
 }
 
 .online-classes{

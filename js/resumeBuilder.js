@@ -1,7 +1,7 @@
 var bio = {
 	"name": "David Wampler",
 	"role": "Web Developer",
-	"welcomeMsg": "Hi, I'm David Wampler. Please take your time exploring my interactive resume.",
+	"welcomeMsg": "Hi, I'm David Wampler. Please take your time exploring my resume.",
 	"contacts": {
 		"mobile": "859-391-7638",
 		"email": "david.a.wampler@gmail.com",

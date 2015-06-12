@@ -91,7 +91,7 @@ var work = {
 		},
 		{
 			"employer": "Hardin-Simmons University",
-			"title": "Student Worker",
+			"title": "Student Councilor",
 			"location": "Abilene, TX",
 			"dates": "2011",
 			"description": "Worked with students to produce university-level papers."
@@ -167,7 +167,7 @@ var education = {
             "major": "English",
             "minor": "Religion",
             "dates": "2012",
-            "url": "http://www.hsutx.edu/"
+            "url": "http://www.hsutx.edu"
         }
     ],
     "onlineCourses": [
@@ -203,12 +203,13 @@ education.display = function(_education) {
 		// create a new div for every school
 		$("#education").append(HTMLschoolStart);
 		// format using helper.js
+		var schoolNameURL = HTMLschoolNameURL.replace("%url%", education.schools[school].url);
 		var schoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
 		var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 		var schoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
 		var schoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		var schoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
-		var formattedSchool = schoolName + schoolDegree + schoolDates + schoolLocation + schoolMajor;
+		var formattedSchool = schoolNameURL + schoolName + schoolDegree + schoolDates + schoolLocation + schoolMajor;
 		// appends schools to each div
 		$(".education-entry:last").append(formattedSchool)
 	};

@@ -80,7 +80,7 @@ var work = {
 			"title": "Bindery Material Handler",
 			"location": "Florence, KY",
 			"dates": "2013-2015",
-			"description": "Help maintain and operate machines. Prepare material for transport."
+			"description": "Helped maintain and operate machines. Prepare material for transport."
 		},
 		{
 			"employer": "Books-A-Million",
@@ -174,7 +174,7 @@ var education = {
     	{
     		"title": "HTML & CSS; JavaScript",
     		"school": "Codecademy",
-    		"dates": 2014,
+    		"dates": "2014 - 2015",
     		"url": "http://www.codecademy.com"
     	},
         {
@@ -216,16 +216,19 @@ education.display = function(_education) {
 		$(".education-entry:last").append(HTMLonlineClasses);
 		for (onlineCourse in _education.onlineCourses){
 			// format using helper.js
+			var onlineClassTitleURL = HTMLonlineTitleURL.replace("%url%", _education.onlineCourses[onlineCourse].url);
 			var onlineClassTitle = HTMLonlineTitle.replace("%data%", _education.onlineCourses[onlineCourse].title);
 			var onlineClassSchool = HTMLonlineSchool.replace("%data%", _education.onlineCourses[onlineCourse].school);
 			var onlineClassDates = HTMLonlineDates.replace("%data%", _education.onlineCourses[onlineCourse].dates);
-			var onlineClassURL = HTMLonlineURL.replace("%data%", _education.onlineCourses[onlineCourse].url);
-			var formattedOnlineClass = onlineClassTitle + onlineClassSchool + onlineClassDates + onlineClassURL;
+			var onlineClassURL = HTMLonlineURL.replace("%url%", _education.onlineCourses[onlineCourse].url);
+			var onlineClassPrintedURL = HTMLonlinePrintedURL.replace("%data%", _education.onlineCourses[onlineCourse].url);
+			var formattedOnlineClass =  onlineClassTitleURL + onlineClassTitle + onlineClassSchool + onlineClassDates + onlineClassURL + onlineClassPrintedURL;
 			//appends online classes to each div
 			$(".education-entry:last").append(formattedOnlineClass);
+			console.log(onlineClassTitleURL);
 		}
 	}
-}
+};
 
 education.display(education);
 

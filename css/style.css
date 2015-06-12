@@ -53,6 +53,10 @@ h2, h3, h4, h5 {
   padding-left: 0%;
 }
 
+.url-fontsize{
+  font-size: 12px;
+}
+
 .date-text {
   font-style: italic;
   font-size: 14px;
